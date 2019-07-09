@@ -1,12 +1,12 @@
 import { MigrationInterface, QueryRunner, getRepository } from 'typeorm'
-import { Resource, ResourceColumn } from '@things-factory/resource-base'
+import { Entity, EntityColumn } from '@things-factory/resource-base'
 import { ENTITY_COLUMNS as SEED_ENTITY_COLUMNS } from '../seed-data/entity-columns'
 import { Domain } from '@things-factory/shell'
 
 export class SeedEntityColumn1557815992349 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<any> {
-    const repository = getRepository(ResourceColumn)
-    const entityRepository = getRepository(Resource)
+    const repository = getRepository(EntityColumn)
+    const entityRepository = getRepository(Entity)
     const domainRepository = getRepository(Domain)
     const domain = await domainRepository.findOne({ name: 'SYSTEM' })
 
